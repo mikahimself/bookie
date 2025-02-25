@@ -1,25 +1,26 @@
 export type Author = {
   id: string;
   firstName: string;
-  middleName?: string;
+  middleName: string | null;
   lastName: string;
-  books: Book[];
+  books?: Book[];
 }
 
 export type Book = {
   id: string;
   title: string;
   originalTitle?: string;
-  author: Author;
+  authorId: string;
+  author?: Author;
   translator?: Translator;
   type: string;
-  synopsis: string;
-  isbn: string;
-  score: number;
+  synopsis: string | null;
+  isbn: string | null;
+  score: number | null;
   releaseYear: number;
-  genres: Genre[];
-  series?: Series;
-  seriesPosition?: number;
+  genres?: Genre[];
+  series?: Series | null;
+  seriesPosition?: number | null;
 }
 
 export type Genre = {
@@ -29,8 +30,8 @@ export type Genre = {
 
 export type Series = {
   name: string;
-  description?: string;
-  books: Book[]
+  description: string | null;
+  books?: Book[]
 
 }
 
@@ -43,10 +44,11 @@ export type Translator = {
 }
 
 export type User = {
+  id: string;
   name: string;
   email: string;
-  books: Book[]
-  wishlists: Wishlist[]
+  createdAt: Date;
+  updatedAt: Date
 }
 
 export type Wishlist = {

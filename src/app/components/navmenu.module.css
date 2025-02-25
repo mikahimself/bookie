@@ -1,0 +1,13 @@
+.navMenu {
+  display: flex;
+  flex-direction: row;
+}
+
+.navMenuList {
+  display: inline;
+}
+
+.navMenuList li {
+  display: inline;
+  margin-left: 16px;
+}

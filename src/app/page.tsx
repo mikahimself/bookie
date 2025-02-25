@@ -1,12 +1,23 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import { NavMenu } from "./components/NavMenu";
+import { getAllBooks, getUserBooks } from "./lib/bookData";
+import { BookList } from "./components/BookList";
 
-export default function Home() {
+export default async function Home() {
+  const bookList = await getAllBooks()
+  const userBookList = await getUserBooks()
+
   return (
-    <div className={styles.page}>
+    <main>
+      <NavMenu />
+      <div className={styles.page}>
       <main className={styles.main}>
-        Content goes here.
+        <BookList books={bookList} userList={false} />
+        <BookList books={userBookList} userList={true} />
       </main>
     </div>
+    </main>
   );
 }
+
+
