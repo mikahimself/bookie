@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SessionProvider from "./components/SessionProvider";
 import { getServerSession } from "next-auth";
 import "./globals.css";
+import { NavMenu } from "./components/NavMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,9 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* Make session available for children */}
         <SessionProvider session={session}>
+          <header>
+            <NavMenu />
+          </header>
           {children}
         </SessionProvider>
       </body>

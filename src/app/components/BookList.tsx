@@ -1,13 +1,13 @@
 import { Book } from "../lib/definitions";
 
-export function BookList({ books, userList = false }: { books: Book[], userList: boolean }) {
-  const noBooksNote = userList ? "User has not added any books yet" : "No books have been added to library yet."
+export function BookList({ initialBooks, isUserList = false }: { initialBooks: Book[], isUserList?: boolean }) {
+  const noBooksNote = isUserList ? "You have not added any books yet" : "No books added to library yet"
   return (
     <>
 
-    {books.length ? (
+    {initialBooks.length ? (
       <ul>
-        {books.map((book) => (
+        {initialBooks.map((book) => (
           <li key={book.id}>{book.title}</li>
           )
         )
